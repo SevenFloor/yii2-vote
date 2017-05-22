@@ -15,7 +15,7 @@ class m160620_131811_vote extends Migration
             'target_id' => $this->integer()->notNull(),
             'user_id' => $this->integer(),
             'user_ip' => $this->string(39)->notNull()->defaultValue('127.0.0.1'),
-            'value' => $this->smallInteger(1)->notNull(),
+            'value' => $this->boolean()->defaultValue(false),
             'created_at' => $this->integer()->notNull(),
         ]);
         $this->createTable('{{%vote_aggregate}}', [
