@@ -89,7 +89,7 @@ class VoteAction extends Action
         if ($vote == null) {
             $response = $this->createVote($module->encodeEntity($form->entity), $form->targetId, $form->getValue());
         } else {
-            if ($vote->value !== $form->getValue()) {
+            if ($vote->value !== (bool) $form->getValue()) {
                 $vote->value = $form->getValue();
                 if ($vote->save()) {
                     $response = ['success' => true, 'changed' => true];
